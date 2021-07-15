@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+
+  jwks_redis:
+    container_name: jwks_redis
+    image: redis:latest
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+    networks:
+      - auth
+
+
+networks:
+  auth:
+    driver: bridge
